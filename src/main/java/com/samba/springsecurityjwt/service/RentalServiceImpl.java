@@ -5,6 +5,8 @@ import com.samba.springsecurityjwt.repository.RentalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class RentalServiceImpl implements RentalService {
@@ -42,5 +44,10 @@ public class RentalServiceImpl implements RentalService {
     @Override
     public Rental findByUserId(Integer userId) {
         return rentalRepository.findByUserId(userId).orElseThrow();
+    }
+
+    @Override
+    public List<Rental> findAll() {
+        return (List<Rental>) rentalRepository.findAll();
     }
 }
